@@ -1,0 +1,1 @@
+This folder is used to organize all the subsidiary RenPy scripts.
