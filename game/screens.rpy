@@ -88,10 +88,7 @@ style frame:
 
 
 
-# used with "at (variable name here)""
-# transform dayofweek_pos:
-#     xpos 150
-
+#Defined HUD variables along with the function for changing the time/date
 init python:
     button_enable_flag = False
 
@@ -175,7 +172,124 @@ init python:
         
         date = month + " " +  str(date_int)
 
+#Location randomizer functions
+#The location values are just placeholders
+init 2 python:
+    def rnd_day_loc();
+        new_location = ""
+        temp_num = renpy.random.randint(1,15)
+        if temp_num == 1:
+            new_location = "location 1"
+        elif temp_num == 2:
+            new_location = "location 2"
+        elif temp_num == 3:
+            new_location = "location 3"
+        elif temp_num == 4:
+            new_location = "location 4"
+        elif temp_num == 5:
+            new_location = "location 5"
+        elif temp_num == 6:
+            new_location = "location 6"
+        elif temp_num == 7:
+            new_location = "location 7"
+        elif temp_num == 8:
+            new_location = "location 8"
+        elif temp_num == 9:
+            new_location = "location 9"
+        elif temp_num == 10:
+            new_location = "location 10"
+        elif temp_num == 11:
+            new_location = "location 11"
+        elif temp_num == 12:
+            new_location = "location 12"
+        elif temp_num == 13:
+            new_location = "location 13"
+        elif temp_num == 14:
+            new_location = "location 14"
+        elif temp_num == 15:
+            new_location = "location 15"
+        return new_location
+    def rnd_night_loc():
+        new_location = ""
+        temp_num = renpy.random.randint(1,15)
+        if temp_num == 1:
+            new_location = "location 1"
+        elif temp_num == 2:
+            new_location = "location 2"
+        elif temp_num == 3:
+            new_location = "location 3"
+        elif temp_num == 4:
+            new_location = "location 4"
+        elif temp_num == 5:
+            new_location = "location 5"
+        elif temp_num == 6:
+            new_location = "location 6"
+        elif temp_num == 7:
+            new_location = "location 7"
+        elif temp_num == 8:
+            new_location = "location 8"
+        elif temp_num == 9:
+            new_location = "location 9"
+        elif temp_num == 10:
+            new_location = "location 10"
+        elif temp_num == 11:
+            new_location = "location 11"
+        elif temp_num == 12:
+            new_location = "location 12"
+        elif temp_num == 13:
+            new_location = "location 13"
+        elif temp_num == 14:
+            new_location = "location 14"
+        elif temp_num == 15:
+            new_location = "location 15"
+        elif temp_num == 16:
+            new_location = "location 16"
+        return new_location
+    def rnd_school_loc():
+        new_location = ""
+        temp_num = renpy.random.randint(1,6)
+        if temp_num == 1:
+            new_location = "location 1"
+        elif temp_num == 2:
+            new_location = "location 2"
+        elif temp_num == 3:
+            new_location = "location 3"
+        elif temp_num == 4:
+            new_location = "location 4"
+        elif temp_num == 5:
+            new_location = "location 5"
+        elif temp_num == 6:
+            new_location = "location 6"
+        return new_location
 
+#Character Class base
+init 3 python:
+    class Girls:
+        first_name = "Aliya"
+        last_name = ""
+        icon = "images/UI/Alissa_Headshot01_80p_%s.png"
+        #avatar
+        location = ""
+        def set_char_location():
+            if time_int == 0:
+                location = "Her dorm"
+            elif time_int == 300:
+                location = "Her dorm"
+            elif time_int == 600:
+                location = rnd_school_loc()
+            elif time_int == 900:
+                location = "Classroom 1"
+            elif time_int == 1200:
+                location = "Classroom 2"
+            elif time_int == 1500:
+                location = rnd_day_loc()
+            elif time_int == 1800:
+                location = rnd_night_loc()
+            elif time_int == 2100:
+                location = rnd_school_loc()
+
+init 4 python:
+    
 
 style HUDText is gui_text
 
